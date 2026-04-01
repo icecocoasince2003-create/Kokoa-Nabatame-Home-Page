@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生田目 心愛 | Resume</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="{{ url_for('home') }}" class="site-title">Kokoa Nabatame</a>
+            <nav class="global-nav">
+                <a href="{{ url_for('home') }}" class="{% if page == 'index' %}active{% endif %}">index</a>
+                <a href="{{ url_for('resume') }}" class="{% if page == 'resume' %}active{% endif %}">resume</a>
+                <a href="{{ url_for('activity') }}" class="{% if page == 'activity' %}active{% endif %}">activity</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+        <section class="page-intro panel narrow">
+            <p class="eyebrow">Resume</p>
+            <h1>経歴</h1>
+        </section>
+
+        <section class="panel narrow">
+            <div class="section-head">
+                <p class="eyebrow">Education</p>
+                <h2>学歴</h2>
+            </div>
+            <ol class="timeline">
+                <li class="timeline-item">
+                    <div class="timeline-date">2025年4月 〜 現在</div>
+                    <div class="timeline-body">
+                        <h3>筑波大学大学院 人文社会ビジネス科学学術院 人文社会科学研究科</h3>
+                        <p>人文学学位プログラム 言語学サブプログラム 博士前期課程</p>
+                        <span class="meta-chip">在学中</span>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-date">2021年4月 〜 2025年3月</div>
+                    <div class="timeline-body">
+                        <h3>東海大学 文化社会学部 アジア学科</h3>
+                        <p>学科主席卒業</p>
+                        <span class="meta-chip">卒業</span>
+                    </div>
+                </li>
+                <li class="timeline-item">
+                    <div class="timeline-date">2018年4月 〜 2021年3月</div>
+                    <div class="timeline-body">
+                        <h3>栃木県立矢板東高等学校</h3>
+                        <span class="meta-chip">卒業</span>
+                    </div>
+                </li>
+            </ol>
+        </section>
+
+        <section class="panel narrow">
+            <div class="section-head">
+                <p class="eyebrow">Licenses & Certifications</p>
+                <h2>資格</h2>
+            </div>
+            <div class="card-stack">
+                {% for q in qualifications %}
+                <article class="line-card">
+                    <div>
+                        <h3>{{ q.name }}</h3>
+                        <p>{{ q.issuer }}</p>
+                    </div>
+                    <span class="line-date">{{ q.date }}</span>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Kokoa Nabatame</p>
+    </footer>
+</body>
+</html>

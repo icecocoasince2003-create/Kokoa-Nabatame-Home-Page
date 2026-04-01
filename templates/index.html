@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生田目 心愛 | Index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="{{ url_for('home') }}" class="site-title">Kokoa Nabatame</a>
+            <nav class="global-nav">
+                <a href="{{ url_for('home') }}" class="{% if page == 'index' %}active{% endif %}">index</a>
+                <a href="{{ url_for('resume') }}" class="{% if page == 'resume' %}active{% endif %}">resume</a>
+                <a href="{{ url_for('activity') }}" class="{% if page == 'activity' %}active{% endif %}">activity</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+        <section class="hero panel">
+            <div class="hero-copy">
+                <p class="eyebrow">Graduate Student / Linguistics / Coptic Studies</p>
+                <h1>生田目 心愛</h1>
+                <p class="hero-sub">筑波大学大学院で言語学（エジプト語・コプト語）を専攻しています。
+                    <br>研究対象はコプト語サイード方言、ナグ・ハマディ写本、『ユダ福音書』、そしてデジタル・ヒューマニティーズです。</p>
+                <div class="hero-links">
+                    <a class="button" href="{{ url_for('resume') }}">経歴を見る</a>
+                    <a class="button button-secondary" href="{{ url_for('activity') }}">研究と活動を見る</a>
+                </div>
+            </div>
+            <div class="hero-aside">
+                <img src="{{ url_for('static', filename='images/shasin_sphinx.jpg') }}" alt="プロフィール写真" class="profile-photo" onerror="this.src='https://placehold.co/360x420?text=Profile'">
+            </div>
+        </section>
+
+        <section class="panel intro-grid">
+            <article class="intro-card">
+                <h2>自己紹介</h2>
+                <p>筑波大学大学院人文社会ビジネス科学学術院博士前期課程2年に在籍しています。
+                    <br>古代エジプト語・コプト語の文献研究やグノーシス主義などの宗教思想に加え、テキスト資源のデジタル化やコーパス化にも関心があります。</p>
+            </article>
+            <article class="intro-card">
+                <h2>現在の関心</h2>
+                <ul class="plain-list">
+                    <li>コプト語サイード方言の統語・意味論研究</li>
+                    <li>ナグ・ハマディ写本のデジタル資源化</li>
+                    <li>『ユダ福音書』を中心としたグノーシス主義研究</li>
+                    <li>機械学習を活用した古典語コーパス開発</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- <section class="panel tiles-section">
+            <div class="section-head">
+                <p class="eyebrow">Contents</p>
+            </div>
+            <div class="tiles">
+                <a class="tile" href="{{ url_for('home') }}">
+                    <span class="tile-label">index</span>
+                    <strong>自己紹介</strong>
+                    <p>研究分野・現在の関心・連絡先をまとめた入口ページです。</p>
+                </a>
+                <a class="tile" href="{{ url_for('resume') }}">
+                    <span class="tile-label">resume</span>
+                    <strong>経歴</strong>
+                    <p>学歴と資格を見やすく整理したページです。</p>
+                </a>
+                <a class="tile" href="{{ url_for('activity') }}">
+                    <span class="tile-label">activity</span>
+                    <strong>研究と活動</strong>
+                    <p>研究テーマ、業績、所属学会、関連リンクを掲載します。</p>
+                </a>
+            </div>
+        </section> -->
+
+        <section class="panel contact-panel">
+            <div class="section-head">
+                <p class="eyebrow">Contact</p>
+                <h2>連絡先</h2>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <p class="contact-label">学内</p>
+                    <a href="mailto:s2520048@u.tsukuba.ac.jp">s2520048@u.tsukuba.ac.jp</a>
+                </div>
+                <div>
+                    <p class="contact-label">個人</p>
+                    <a href="mailto:icecocoa.since2003@icloud.com">icecocoa.since2003@icloud.com</a>
+                </div>
+                <div>
+                    <p class="contact-label">GitHub</p>
+                    <a href="https://github.com/icecocoasince2003-create" target="_blank" rel="noopener noreferrer">icecocoasince2003-create</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel links-panel">
+            <div class="section-head">
+                <p class="eyebrow">Related Links</p>
+                <h2>関連リンク</h2>
+            </div>
+            <ul class="link-list">
+                <li><a href="https://somiyagawa.com/" target="_blank" rel="noopener noreferrer">宮川創研究室HP</a></li>
+                <li><a href="https://www.lingua.tsukuba.ac.jp/ippan/index.html" target="_blank" rel="noopener noreferrer">筑波大学一般言語学研究室HP</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Kokoa Nabatame</p>
+    </footer>
+</body>
+</html>
