@@ -20,3 +20,6 @@ def get_societies():
 
 def get_qualifications():
     return load_json('qualifications.json')
+
+def get_recent_records():
+    return load_json('recent_records.json')

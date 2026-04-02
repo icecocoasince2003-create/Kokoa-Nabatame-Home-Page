@@ -75,6 +75,40 @@
             </div>
         </section> -->
 
+        <section class="section-block">
+            <div class="section-heading">
+                <h2>最近の記録</h2>
+                <p>学会参加・研究会参加・発表など、最近の活動を掲載しています</p>
+            </div>
+
+            <div class="recent-records">
+                {% for record in recent_records %}
+                <article class="record-card">
+                    <div class="record-meta">
+                        <span class="record-date">{{record.date}}</span>
+                        <span class="record-badge badge-{{record.type|replace(' ', '')}}">
+                            {{record.type}}
+                        </span>
+                    </div>
+
+                    <h3>{{record.title}}</h3>
+                    <p class="record-place">{{record.place}}</p>
+                    <p class="record-description">{{record.description}}</p>
+
+                    {% if record.url %}
+                    <a href="{{record.url}}" target="_blank" rel="noopener noreferrer" class="record-link">
+                        関連リンクを見る
+                    </a>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="more-buttom-wrap">
+                <a href="{{url_for('activity')}}#all-records" class="more-button">もっと見る</a>
+            </div>"
+        </section>
+
         <section class="panel contact-panel">
             <div class="section-head">
                 <p class="eyebrow">Contact</p>

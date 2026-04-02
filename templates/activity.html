@@ -95,6 +95,52 @@
             </div>
         </section>
 
+        <section class="section-block" id="all-records">
+            <div class="section-heading">
+                <h2>すべての記録</h2>
+                <p>学会参加・研究会参加・発表などを年ごとにまとめています。</p>
+            </div>
+
+            <nav class="year-nav" aria-label="年度ナビ">
+                <ul class="year-nav-list">
+                    {% for year in grouped_records.keys() %}
+                    <li>
+                        <a href="#year-{{year}}" class="year-nav-link">{{year}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            {% for year, records in grouped_records.items() %}
+            <div class="record-year-group" id="year-{{year}}">
+                <h3 class="record-year-title">{{year}}</h3>
+
+                <div class="recent-records">
+                    {% for record in records %}
+                    <article class="record-card">
+                        <div class="record-meta">
+                            <span class="record-date">{{record.date}}</span>
+                            <span class="record-badge badge-{{record.type|replace(' ', '')}}">
+                                {{record.type}}
+                            </span>
+                        </div>
+
+                        <h4>{{record.title}}</h4>
+                        <p class="record-place">{{record.place}}</p>
+                        <p class="record-description">{{record.description}}</p>
+
+                        {% if record.url %}
+                        <a href="{{record.url}}" target="_blank" rel="noopener noreferrer" class="record-link">
+                            関連リンクを見る
+                        </a>
+                        {% endif %}
+                    </article>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
         <section class="panel">
             <div class="section-head">
                 <p class="eyebrow">Related Links</p>
