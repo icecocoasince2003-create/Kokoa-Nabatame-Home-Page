@@ -44,7 +44,8 @@ def activity():
         "activity.html", 
         achievements=achievements, 
         societies=societies,
-        grouped_records=grouped_records
+        grouped_records=grouped_records,
+        page="activity"
     )
 
 if __name__ == "__main__":
