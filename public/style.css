@@ -483,200 +483,207 @@ tbody tr:hover {
         flex-direction: column;
         align-items: flex-start;
     }
+}
 
+.section-block {
+    margin: 64px 0;
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-heading h2 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    color: #1f2a44;
+}
+
+.section-heading p {
+    color: #666;
+    font-size: 0.98rem;
+}
+
+.recent-records {
+    display: grid;
+    gap: 20px;
+}
+
+.record-card {
+    background: #fffdf8;
+    border: 1px solid #e7dfd1;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.record-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.record-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.record-date {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.record-badge {
+    display: inline-block;
+    font-size: 0.82rem;
+    padding: 5px 11px;
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+/* 最近の記録用バッジ */
+.record-badge.badge-学会参加 {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.record-badge.badge-研究会参加 {
+    background: #ede9fe;
+    color: #6d28d9;
+}
+
+.record-badge.badge-発表 {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.record-badge.badge-論文 {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.record-badge.badge-受賞 {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.record-badge.badge-イベント {
+    background: #fce7f3;
+    color: #be185d;
+}
+
+.record-card h3,
+.record-card h4 {
+    font-size: 1.2rem;
+    margin: 0 0 8px;
+    color: #1f2a44;
+}
+
+.record-place {
+    font-size: 0.95rem;
+    color: #7a6f5a;
+    margin-bottom: 8px;
+}
+
+.record-description {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.record-link {
+    color: #1f4b7a;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.record-link:hover {
+    text-decoration: underline;
+}
+
+.more-button-wrap {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.more-button {
+    display: inline-block;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #1f2a44;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.more-button:hover {
+    background: #2b3b61;
+    transform: translateY(-2px);
+}
+
+.record-year-group {
+    margin-bottom: 40px;
+    scroll-margin-top: 100px;
+}
+
+.record-year-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 4px solid #1f2a44;
+    color: #1f2a44;
+}
+
+.year-nav {
+    margin: 20px 0 32px;
+    padding: 16px 18px;
+    background: #f8f5ee;
+    border: 1px solid #e7dfd1;
+    border-radius: 14px;
+}
+
+.year-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.year-nav-link {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid #d8cfbf;
+    color: #1f2a44;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.year-nav-link:hover {
+    background: #1f2a44;
+    color: #ffffff;
+    border-color: #1f2a44;
+}
+
+@media (max-width: 680px) {
     .section-block {
-        margin: 64px 0;
-      }
-      
-      .section-heading {
-        margin-bottom: 24px;
-      }
-      
-      .section-heading h2 {
-        font-size: 2rem;
-        margin-bottom: 8px;
-        color: #1f2a44;
-      }
-      
-      .section-heading p {
-        color: #666;
-        font-size: 0.98rem;
-      }
-      
-      .recent-records {
-        display: grid;
-        gap: 20px;
-      }
-      
-      .record-card {
-        background: #fffdf8;
-        border: 1px solid #e7dfd1;
-        border-radius: 16px;
-        padding: 22px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
-      }
-      
-      .record-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-      }
-      
-      .record-meta {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-        margin-bottom: 12px;
-      }
-      
-      .record-date {
-        font-size: 0.9rem;
-        color: #6b7280;
-      }
-      
-      .record-badge {
-        display: inline-block;
-        font-size: 0.82rem;
-        padding: 5px 11px;
-        border-radius: 999px;
-        font-weight: 700;
-        letter-spacing: 0.02em;
-      }
-      
-      /* 種別ごとの色 */
-      .badge-学会参加 {
-        background: #dbeafe;
-        color: #1d4ed8;
-      }
-      
-      .badge-研究会参加 {
-        background: #ede9fe;
-        color: #6d28d9;
-      }
-      
-      .badge-発表 {
-        background: #dcfce7;
-        color: #166534;
-      }
-      
-      .badge-論文 {
-        background: #fef3c7;
-        color: #92400e;
-      }
-      
-      .badge-受賞 {
-        background: #fee2e2;
-        color: #b91c1c;
-      }
-      
-      .badge-イベント {
-        background: #fce7f3;
-        color: #be185d;
-      }
-      
-      .record-card h3,
-      .record-card h4 {
-        font-size: 1.2rem;
-        margin: 0 0 8px;
-        color: #1f2a44;
-      }
-      
-      .record-place {
-        font-size: 0.95rem;
-        color: #7a6f5a;
-        margin-bottom: 8px;
-      }
-      
-      .record-description {
-        color: #444;
-        line-height: 1.8;
-        margin-bottom: 12px;
-      }
-      
-      .record-link {
-        color: #1f4b7a;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      
-      .record-link:hover {
-        text-decoration: underline;
-      }
-      
-      .more-button-wrap {
-        margin-top: 24px;
-        text-align: center;
-      }
-      
-      .more-button {
-        display: inline-block;
-        padding: 12px 22px;
-        border-radius: 999px;
-        background: #1f2a44;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 700;
-        transition: background 0.2s ease, transform 0.2s ease;
-      }
-      
-      .more-button:hover {
-        background: #2b3b61;
-        transform: translateY(-2px);
-      }
-      
-      .record-year-group {
-        margin-bottom: 40px;
-      }
-      
-      .record-year-title {
-        font-size: 1.5rem;
-        margin-bottom: 16px;
-        padding-left: 12px;
-        border-left: 4px solid #1f2a44;
-        color: #1f2a44;
-      }
+        margin: 48px 0;
     }
 
-    .year-nav {
-        margin: 20px 0 32px;
-        padding: 16px 18px;
-        background: #f8f5ee;
-        border: 1px solid #e7dfd1;
-        border-radius: 14px;
-      }
-      
-      .year-nav-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-      
-      .year-nav-link {
-        display: inline-block;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: #ffffff;
-        border: 1px solid #d8cfbf;
-        color: #1f2a44;
-        text-decoration: none;
-        font-weight: 700;
-        transition: all 0.2s ease;
-      }
-      
-      .year-nav-link:hover {
-        background: #1f2a44;
-        color: #ffffff;
-        border-color: #1f2a44;
-      }
-      
-      .record-year-group {
-        scroll-margin-top: 100px;
-      }
-      
-      html{
-        scroll-behavior: smooth;
-      }
+    .record-card {
+        padding: 18px;
+    }
+
+    .section-heading h2 {
+        font-size: 1.6rem;
+    }
+}
