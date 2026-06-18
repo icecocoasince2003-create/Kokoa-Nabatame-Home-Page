@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}生田目 心愛 | Blog{% endblock %}
+
+{% block content %}
+        <section class="page-intro panel">
+            <p class="eyebrow">Blog</p>
+            <h1>記録・ブログ</h1>
+            <p>学会参加・研究会参加・発表など、これまでの活動を年ごとにまとめています。</p>
+        </section>
+
+        <section class="section-block" id="all-records">
+            {% if grouped_records %}
+            <nav class="year-nav" aria-label="年度ナビ">
+                <ul class="year-nav-list">
+                    {% for year in grouped_records.keys() %}
+                    <li>
+                        <a href="#year-{{ year }}" class="year-nav-link">{{ year }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            {% for year, records in grouped_records.items() %}
+            <div class="record-year-group" id="year-{{ year }}">
+                <h2 class="record-year-title">{{ year }}</h2>
+
+                <div class="recent-records">
+                    {% for record in records %}
+                        {% include "_record_card.html" %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p>まだ記事がありません。</p>
+            {% endif %}
+        </section>
+{% endblock %}

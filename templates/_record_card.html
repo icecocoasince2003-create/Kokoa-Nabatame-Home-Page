@@ -1,0 +1,17 @@
+<article class="record-card">
+    <div class="record-meta">
+        <span class="record-date">{{ record.date }}</span>
+        <span class="record-badge badge-{{ record.type|replace(' ', '') }}">
+            {{ record.type }}
+        </span>
+    </div>
+
+    <h3 class="record-card-title">
+        <a href="{{ url_for('blog_post', slug=record.slug) }}">{{ record.title }}</a>
+    </h3>
+
+    {% if record.place %}<p class="record-place">{{ record.place }}</p>{% endif %}
+    <p class="record-description">{{ record.summary }}</p>
+
+    <a href="{{ url_for('blog_post', slug=record.slug) }}" class="record-link">続きを読む →</a>
+</article>

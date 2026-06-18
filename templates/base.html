@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}生田目 心愛{% endblock %}</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="{{ url_for('home') }}" class="site-title">Kokoa Nabatame</a>
+            <nav class="global-nav">
+                <a href="{{ url_for('home') }}" class="{% if page == 'index' %}active{% endif %}">index</a>
+                <a href="{{ url_for('resume') }}" class="{% if page == 'resume' %}active{% endif %}">resume</a>
+                <a href="{{ url_for('activity') }}" class="{% if page == 'activity' %}active{% endif %}">activity</a>
+                <a href="{{ url_for('blog') }}" class="{% if page == 'blog' %}active{% endif %}">blog</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 Kokoa Nabatame</p>
+    </footer>
+</body>
+</html>

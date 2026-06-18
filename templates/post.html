@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}生田目 心愛 | {{ post.title }}{% endblock %}
+
+{% block content %}
+        <article class="panel narrow post">
+            <div class="record-meta">
+                <span class="record-date">{{ post.date }}</span>
+                <span class="record-badge badge-{{ post.type|replace(' ', '') }}">
+                    {{ post.type }}
+                </span>
+            </div>
+
+            <h1 class="post-title">{{ post.title }}</h1>
+            {% if post.place %}<p class="record-place">{{ post.place }}</p>{% endif %}
+
+            <div class="post-body">
+                {{ post.html|safe }}
+            </div>
+
+            {% if post.url %}
+            <p>
+                <a href="{{ post.url }}" target="_blank" rel="noopener noreferrer" class="record-link">
+                    関連リンクを見る →
+                </a>
+            </p>
+            {% endif %}
+        </article>
+
+        <div class="more-button-wrap">
+            <a href="{{ url_for('blog') }}" class="more-button">← 一覧に戻る</a>
+        </div>
+{% endblock %}

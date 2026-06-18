@@ -1,0 +1,58 @@
+[
+     {
+         "year": "2026",
+         "title": "A Study on Differential Object Marking (DOM) in the Gospel of Judas: A Sahidic Coptic Dialectal Analysis",
+         "description": "13th International Congress of Coptic Studies",
+         "type": "発表",
+         "authors":["Kokoa Nabatame"]
+     },
+     {
+         "year": "2026",
+         "title": "A Linguistic Analysis of the Coptic Translation of Plato's Republic 588b–589b in Nag Hammadi Codex VI,5",
+         "description": "Current Research in Egyptology 26",
+         "type": "発表",
+         "authors":["Kokoa Nabatame"]
+     },
+     {
+         "year": "2026",
+         "title": "コプト語グノーシス主義文書のTEI XMLコーパス化――ユダの福音書を中心に――",
+         "description": "情報知識学会第34回大会学生奨励賞",
+         "type": "受賞",
+         "authors":["生田目 心愛","宮川 創"]
+     },   
+     {
+         "year": "2026",
+         "title": "コプト語グノーシス主義文書のTEI XMLコーパス化――ユダの福音書を中心に――",
+         "description": "情報知識学会第34回大会",
+         "type": "発表",
+         "authors":["生田目 心愛","宮川 創"],
+         "presenters":["生田目 心愛"]
+     },
+     {
+         "year": "2026",
+         "title": "コプト語グノーシス主義文書のTEI XMLコーパス化――ユダの福音書を中心に――",
+         "description": "情報知識学会誌",
+         "type": "論文",
+         "authors":["生田目 心愛","宮川 創"]
+     },   
+    {
+        "year": "2025",
+        "title": "コプト語サイード方言文献『ユダ福音書』における Differential Object Marking に関する一考察",
+        "description": "日本オリエント学会第67回大会",
+        "type": "発表",
+        "authors":["生田目 心愛"]
+    },
+    {
+        "year": "2025",
+        "title": "東海大学総長賞",
+        "description": "学科主席卒業生として、東海大学総長賞を受賞",
+        "type": "受賞"
+    },
+    {
+        "year":"2024",
+        "title":"「文化財を科学するIII」ワークショップ講演及びディスカッション録 AIとオープンデータが人文学を変えるデジタル・ヒューマニティーズ-画像公開方式IIIFやAIくずし字認識の発展から見えてくる人文学の新たな研究方法",
+        "description":"『文明』第32号(2023)",
+        "authors":["北本 朝展","山花 京子","松前 ひろみ","鴨下 真由","小能 治子","生田目 心愛"],
+        "type":"論文"
+    }
+]
