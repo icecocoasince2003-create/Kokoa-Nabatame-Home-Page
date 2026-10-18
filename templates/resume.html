@@ -1,19 +1,23 @@
 {% extends "base.html" %}
+{% from "_macros.html" import period %}
 
 {% block title %}経歴 | {% endblock %}
 
+{% block band %}
+        <div class="page-head wrap">
+            <h1>経歴</h1>
+            <p class="en" lang="en">Curriculum Vitae</p>
+        </div>
+{% endblock %}
+
 {% block content %}
-        <header class="page-head">
-            <h1 class="page-title">経歴</h1>
-            <p class="page-title-en" lang="en">Curriculum Vitae</p>
-        </header>
 
         <section>
-            <h2>学歴</h2>
-            <ul class="dated">
+            <h2>学歴<span lang="en">Education</span></h2>
+            <ul class="dated long">
                 {% for e in profile.education %}
                 <li>
-                    <span class="when">{{ e.period }}</span>
+                    <span class="when">{{ period(e.period) }}</span>
                     <div class="what">
                         <p class="title">{{ e.school }}</p>
                         {% if e.detail %}<p class="sub">{{ e.detail }}</p>{% endif %}
@@ -25,11 +29,11 @@
 
         {% if rm.experience %}
         <section>
-            <h2>職歴</h2>
-            <ul class="dated">
+            <h2>職歴<span lang="en">Employment</span></h2>
+            <ul class="dated long">
                 {% for x in rm.experience %}
                 <li>
-                    <span class="when">{{ x.period }}</span>
+                    <span class="when">{{ period(x.period) }}</span>
                     <div class="what">
                         <p class="title">{{ x.org }} {{ x.job }}</p>
                         {% if x.note %}<p class="sub">担当科目：{{ x.note }}</p>{% endif %}
@@ -41,7 +45,7 @@
         {% endif %}
 
         <section>
-            <h2>免許・資格</h2>
+            <h2>免許・資格<span lang="en">Licenses</span></h2>
             <ul class="dated">
                 {% for q in profile.qualifications %}
                 <li>

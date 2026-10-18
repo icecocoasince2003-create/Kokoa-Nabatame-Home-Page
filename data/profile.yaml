@@ -14,7 +14,8 @@
 
 name: 生田目 心愛
 name_en: Kokoa Nabatame
-photo: /images/shasin_sphinx.jpg
+photo: /images/profile.jpg    # 表示用に縦長に切り抜いた写真（元の写真は shasin_sphinx.jpg）
+name_coptic: ⲕⲟⲕⲟⲁ ⲛⲁⲃⲁⲧⲁⲙⲉ   # コプト文字での名前（不要なら行ごと消してOK）
 
 # トップページ：名前の下の所属
 affiliation: 筑波大学大学院 人文社会科学研究群 言語学サブプログラム 博士前期課程2年

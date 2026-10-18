@@ -1,37 +1,36 @@
 /* =========================================================
    色と文字の設定（ここを変えると全体が変わります）
+   夜空のラピスラズリ × 金 ― エジプトの墓の天井画の配色
+   星空の動き（星の数・速さ・流れ星）は public/sky.js の冒頭で調整できます
    ========================================================= */
 :root {
-    --paper: #fbfbfa;
-    --ink: #1a2029;
-    --muted: #6a727d;
-    --rule: #dfe2e6;
-    --link: #1b4f9c;      /* エジプシャンブルー */
+    color-scheme: dark;
+    --night: #0a142c;                    /* 夜空の基本色 */
+    --gold: #cda96a;                     /* アクセント（少しだけ） */
+    --ink: #e9edf4;                      /* 文字 */
+    --muted: #a4afc2;                    /* 補足の文字 */
+    --rule: rgba(205, 218, 245, 0.14);   /* 区切り線 */
+    --link: #aac6f2;                     /* リンク */
+
     --mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
     --latin: "Cormorant Garamond", "Garamond", "Times New Roman", serif;
+    --coptic: "Noto Sans Coptic", "Antinoou", sans-serif;
     --sans: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", "Meiryo", sans-serif;
-    --width: 62rem;
-    --rail: 11rem;        /* 左の見出し列の幅 */
-}
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --paper: #15181d;
-        --ink: #e6e8eb;
-        --muted: #9aa2ad;
-        --rule: #2b3038;
-        --link: #8fb5f0;
-    }
+    --width: 64rem;
+    --rail: 12rem;                       /* 左の見出し列の幅 */
 }
 
 /* ---------- 基本 ---------- */
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+html {
+    -webkit-text-size-adjust: 100%;
+    background: var(--night);
+}
 
 body {
     margin: 0;
-    background: var(--paper);
     color: var(--ink);
     font-family: var(--sans);
     font-size: 0.98rem;
@@ -39,35 +38,48 @@ body {
     letter-spacing: 0.02em;
 }
 
+::selection { background: rgba(205, 169, 106, 0.4); color: #fff; }
+
 a {
     color: var(--link);
-    text-decoration: none;
-    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
-    transition: background-size 0.25s ease;
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.22em;
+    transition: text-decoration-color 0.2s;
 }
-a:hover { background-size: 100% 1px; }
-a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+a:hover { text-decoration-color: currentColor; }
+a:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
 
 img { max-width: 100%; display: block; }
 
-h1, h2, h3 {
-    font-family: var(--mincho);
-    font-weight: 600;
-    line-height: 1.45;
-    margin: 0;
-}
+h1, h2, h3 { font-family: var(--mincho); font-weight: 600; line-height: 1.45; margin: 0; }
 
 p { margin: 0 0 1em; }
 
-/* ---------- 枠組み ---------- */
-.site-header,
-.page-wrap,
-.site-footer {
+.wrap {
     max-width: var(--width);
     margin: 0 auto;
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 32px;
+    padding-right: 32px;
 }
+
+/* ---------- 夜空（星は sky.js が描きます） ---------- */
+#sky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100lvh;
+    z-index: -1;
+    pointer-events: none;
+    background:
+        radial-gradient(130% 60% at 25% 115%, rgba(60, 92, 165, 0.42), transparent 65%),
+        linear-gradient(180deg, #050a17 0%, #091329 45%, #0f1f45 100%);
+}
+
+/* ---------- ヘッダー ---------- */
+.band a { color: var(--ink); }
 
 .site-header {
     display: flex;
@@ -75,47 +87,117 @@ p { margin: 0 0 1em; }
     align-items: baseline;
     justify-content: space-between;
     gap: 8px 28px;
-    padding-top: 32px;
-    padding-bottom: 32px;
+    padding-top: 26px;
+    padding-bottom: 26px;
 }
 
 .site-title {
     font-family: var(--latin);
-    font-size: 1.35rem;
-    font-weight: 500;
     font-style: italic;
-    color: var(--ink);
-    letter-spacing: 0.01em;
+    font-weight: 500;
+    font-size: 1.3rem;
 }
-.site-title:hover { background-size: 0 1px; }
 
-.global-nav { display: flex; flex-wrap: wrap; gap: 4px 26px; font-size: 0.9rem; }
+.global-nav { display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 0.88rem; }
 .global-nav a { color: var(--muted); }
 .global-nav a:hover { color: var(--ink); }
-.global-nav a[aria-current="page"] { color: var(--ink); background-size: 100% 1px; }
+.global-nav a[aria-current="page"] { color: var(--ink); text-decoration-color: var(--gold); }
 
-.page-wrap { padding-bottom: 96px; }
-
-.site-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 6px 24px;
-    padding-top: 28px;
-    padding-bottom: 56px;
-    border-top: 1px solid var(--rule);
-    color: var(--muted);
-    font-size: 0.82rem;
+/* ---------- トップページの名前と写真 ---------- */
+.hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 232px;
+    gap: 48px;
+    align-items: end;
+    min-height: min(72vh, 680px);
+    padding-top: 48px;
+    padding-bottom: 80px;
 }
-.site-footer p { margin: 0; }
 
-/* ---------- セクション：見出しを左の列に ---------- */
+.coptic {
+    margin: 0 0 14px;
+    font-family: var(--coptic);
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    letter-spacing: 0.06em;
+    line-height: 1.2;
+    color: var(--gold);
+}
+
+.hero h1 {
+    font-size: clamp(2.6rem, 6.4vw, 4.4rem);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    line-height: 1.15;
+}
+
+.hero .romaji {
+    margin: 10px 0 0;
+    font-family: var(--latin);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.6vw, 1.85rem);
+    line-height: 1.2;
+}
+
+.hero .affiliation {
+    margin: 26px 0 0;
+    padding-top: 18px;
+    max-width: 30em;
+    border-top: 1px solid rgba(205, 169, 106, 0.5);
+    color: var(--muted);
+    font-size: 0.88rem;
+    word-break: keep-all;
+}
+
+.photo {
+    position: relative;
+    margin: 0;
+}
+
+.photo::before {          /* 金の細い額縁を少しずらして重ねる */
+    content: "";
+    position: absolute;
+    inset: 12px -12px -12px 12px;
+    border: 1px solid var(--gold);
+}
+
+.photo img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+/* ---------- 各ページの見出し ---------- */
+.page-head { padding-top: 64px; padding-bottom: 72px; }
+
+.page-head h1 {
+    font-size: clamp(2rem, 4.6vw, 2.9rem);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+.page-head .en {
+    margin: 4px 0 0;
+    font-family: var(--latin);
+    font-style: italic;
+    font-size: 1.3rem;
+    color: var(--gold);
+}
+
+.page-head .desc { margin: 18px 0 0; color: var(--muted); font-size: 0.9rem; }
+
+.page-head .post-title { margin-top: 6px; font-size: clamp(1.5rem, 3.4vw, 2.1rem); letter-spacing: 0.05em; max-width: 30em; }
+
+/* ---------- 本文 ---------- */
+.page-wrap { padding-bottom: 80px; }
+
 section {
     display: grid;
     grid-template-columns: var(--rail) minmax(0, 1fr);
     column-gap: 40px;
-    padding-top: 40px;
-    margin-top: 40px;
+    padding: 44px 0;
     border-top: 1px solid var(--rule);
 }
 
@@ -125,102 +207,34 @@ section > h2 {
     grid-column: 1;
     grid-row: 1 / span 60;
     align-self: start;
-    font-size: 1.1rem;
-    letter-spacing: 0.08em;
-}
-
-section h3 {
-    font-size: 1rem;
-    margin: 32px 0 8px;
-}
-section h3:first-of-type { margin-top: 0; }
-
-.note { color: var(--muted); font-size: 0.88rem; margin-top: 14px; }
-
-/* ---------- 各ページの大見出し ---------- */
-.page-head {
-    display: grid;
-    grid-template-columns: var(--rail) minmax(0, 1fr);
-    column-gap: 40px;
-    margin: 40px 0 8px;
-}
-.page-head > * { grid-column: 2; }
-
-.page-title {
-    font-size: clamp(2rem, 4.5vw, 2.8rem);
-    font-weight: 500;
+    font-size: 1.12rem;
     letter-spacing: 0.1em;
 }
 
-.page-title-en {
-    margin: 2px 0 0;
+section > h2 span {
+    display: block;
+    margin-top: 2px;
     font-family: var(--latin);
     font-style: italic;
-    font-size: 1.25rem;
+    font-weight: 500;
+    font-size: 1.02rem;
+    letter-spacing: 0.01em;
     color: var(--muted);
 }
 
-.page-head .note { margin-top: 12px; }
+section h3 { font-size: 1rem; margin: 30px 0 8px; }
+section > h3:first-of-type,
+.theme:first-of-type h3 { margin-top: 0; }
 
-/* ---------- トップ：縦書きの名前と写真 ---------- */
-.intro {
-    display: grid;
-    grid-template-columns: var(--rail) minmax(0, 340px) minmax(0, 1fr);
-    column-gap: 40px;
-    align-items: start;
-    margin: 24px 0 72px;
-}
+.theme h3 { margin-top: 20px; }
+.theme p { max-width: 36em; }
 
-.intro h1 {
-    writing-mode: vertical-rl;
-    justify-self: center;
-    align-self: start;
-    font-size: clamp(2.8rem, 6vw, 4.4rem);
-    font-weight: 500;
-    letter-spacing: 0.24em;
-    line-height: 1.1;
-    animation: rise 0.9s ease-out both;
-}
+.note { color: var(--muted); font-size: 0.88rem; margin: 16px 0 0; }
 
-.intro img {
-    width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-}
-
-.intro h1 span + span { margin-inline-start: 0.5em; }
-
-.intro > div { align-self: end; }
-
-.intro .romaji {
-    margin: 0 0 18px;
-    font-family: var(--latin);
-    font-style: italic;
-    font-weight: 500;
-    font-size: clamp(1.9rem, 3.6vw, 2.6rem);
-    line-height: 1.1;
-}
-
-.intro .affiliation { margin: 0; color: var(--muted); font-size: 0.9rem; max-width: 24em; word-break: keep-all; }
-
-@keyframes rise {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .intro h1 { animation: none; }
-    a { transition: none; }
-}
-
-.lead p { font-size: 1.02rem; max-width: 38em; }
+.lead p { font-size: 1.03rem; max-width: 36em; }
 
 /* ---------- 日付つきの一覧（業績・経歴・ブログ共通） ---------- */
-.dated {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
+.dated { list-style: none; margin: 0; padding: 0; }
 
 .dated > li {
     display: grid;
@@ -234,24 +248,21 @@ section h3:first-of-type { margin-top: 0; }
 .dated .when {
     color: var(--muted);
     font-family: var(--latin);
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-variant-numeric: lining-nums tabular-nums;
     line-height: 1.6;
 }
 
 .dated .what p { margin: 0; }
-
 .dated .title { font-weight: 600; line-height: 1.65; }
-
 .dated .sub { color: var(--muted); font-size: 0.88rem; }
-
 .dated b { font-weight: 700; color: var(--ink); }
 
 /* ---------- 箇条書き・定義リスト ---------- */
 .plain { list-style: none; margin: 0; padding: 0; }
-.plain li { padding-left: 1.4em; position: relative; }
-.plain li::before { content: "—"; position: absolute; left: 0; color: var(--muted); }
-.plain li + li { margin-top: 4px; }
+.plain li { position: relative; padding-left: 1.6em; }
+.plain li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+.plain li + li { margin-top: 6px; }
 
 .pairs {
     display: grid;
@@ -262,57 +273,67 @@ section h3:first-of-type { margin-top: 0; }
 .pairs dt { color: var(--muted); font-size: 0.86rem; padding-top: 0.15em; }
 .pairs dd { margin: 0; overflow-wrap: anywhere; }
 
-.theme p { max-width: 38em; }
-
 /* ---------- ブログ記事 ---------- */
-.post { max-width: 40rem; margin: 40px auto 0; }
-
-.post-meta { color: var(--muted); font-family: var(--latin); font-size: 1.05rem; margin: 0 0 8px; }
-
-.post-title { font-size: clamp(1.6rem, 3.5vw, 2.1rem); font-weight: 500; letter-spacing: 0.05em; margin-bottom: 36px; }
-
+.post { max-width: 40rem; padding-top: 40px; border-top: 1px solid var(--rule); }
 .post-body { font-size: 1.02rem; line-height: 2; }
 .post-body h2 { font-size: 1.25rem; margin: 40px 0 12px; }
 .post-body h3 { font-size: 1.08rem; margin: 28px 0 10px; }
 .post-body ul, .post-body ol { padding-left: 1.3em; margin: 0 0 1em; }
 .post-body img { margin: 24px 0; }
-.post-body a { background-size: 100% 1px; }
-.post-body blockquote {
-    margin: 24px 0;
-    padding-left: 18px;
-    border-left: 1px solid var(--ink);
-    color: var(--muted);
+.post-body a { text-decoration-color: currentColor; }
+.post-body blockquote { margin: 24px 0; padding-left: 18px; border-left: 1px solid var(--gold); color: var(--muted); }
+.back { margin: 56px 0 0; font-size: 0.9rem; }
+
+/* ---------- フッター ---------- */
+.site-footer { color: var(--muted); font-size: 0.82rem; }
+.site-footer .wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 24px;
+    padding-top: 28px;
+    padding-bottom: 40px;
+    border-top: 1px solid var(--rule);
+}
+.site-footer p { margin: 0; }
+.site-footer a { color: var(--ink); }
+
+/* ---------- 動き（ページを開いたときに一度だけ） ---------- */
+.hero > div { animation: rise 0.9s ease-out both; }
+.hero .photo { animation: rise 0.9s 0.15s ease-out both; }
+
+@keyframes rise {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: none; }
 }
 
-.back { max-width: 40rem; margin: 56px auto 0; font-size: 0.9rem; }
+@media (prefers-reduced-motion: reduce) {
+    .hero > div, .hero .photo { animation: none; }
+    a { transition: none; }
+}
 
 /* ---------- タブレット・スマホ ---------- */
 @media (max-width: 820px) {
-    :root { --rail: 1fr; }
-
-    section,
-    .page-head { grid-template-columns: 1fr; }
-    section > *,
-    .page-head > * { grid-column: 1; }
+    section { grid-template-columns: 1fr; padding: 36px 0; }
+    section > * { grid-column: 1; }
     section > h2 { grid-row: auto; margin-bottom: 20px; }
+    section > h2 span { display: inline; margin-left: 10px; }
 
-    .intro {
-        grid-template-columns: auto minmax(0, 1fr);
-        column-gap: 20px;
-        row-gap: 24px;
-        margin-bottom: 48px;
-    }
-    .intro h1 { grid-row: 1; font-size: 2.6rem; }
-    .intro img { grid-row: 1; grid-column: 2; max-width: 300px; }
-    .intro > div { grid-column: 1 / -1; }
+    .hero { grid-template-columns: minmax(0, 1fr) 150px; gap: 28px; min-height: 0; padding-top: 72px; padding-bottom: 60px; }
 }
 
-@media (max-width: 520px) {
-    .site-header,
-    .page-wrap,
-    .site-footer { padding-left: 18px; padding-right: 18px; }
+@media (max-width: 560px) {
+    .wrap { padding-left: 20px; padding-right: 20px; }
 
-    .dated > li,
-    .pairs { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 24px; }
+    .hero .photo { width: 62%; max-width: 230px; order: -1; }
+
+    .page-head { padding-top: 40px; padding-bottom: 48px; }
+
+    .dated > li, .pairs { grid-template-columns: 1fr; }
     .pairs dd { margin-bottom: 8px; }
 }
+
+/* 期間（〜）が入る一覧は年月の列を広めに */
+.dated.long > li { grid-template-columns: 7rem minmax(0, 1fr); }
+@media (max-width: 560px) { .dated.long > li { grid-template-columns: 1fr; } }

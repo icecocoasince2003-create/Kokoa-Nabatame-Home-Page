@@ -1,23 +1,28 @@
 {% extends "base.html" %}
 {% from "_macros.html" import post_item, achievement %}
 
-{% block content %}
-        <div class="intro">
-            <h1>{% for part in profile.name.split() %}<span>{{ part }}</span>{% endfor %}</h1>
-            <img src="{{ profile.photo }}" alt="ギザのスフィンクスの前で">
+{% block band %}
+        <div class="hero wrap">
             <div>
+                {% if profile.name_coptic %}<p class="coptic" lang="cop">{{ profile.name_coptic }}</p>{% endif %}
+                <h1>{{ profile.name }}</h1>
                 <p class="romaji" lang="en">{{ profile.name_en }}</p>
                 <p class="affiliation">{{ profile.affiliation }}</p>
             </div>
+            <figure class="photo">
+                <img src="{{ profile.photo }}" alt="ギザの大スフィンクスの前で" width="720" height="900">
+            </figure>
         </div>
+{% endblock %}
 
+{% block content %}
         <section class="lead">
-            <h2>自己紹介</h2>
+            <h2>自己紹介<span lang="en">About</span></h2>
             {% for para in profile.about.strip().split("\n\n") %}<p>{{ para | replace("\n", "") }}</p>{% endfor %}
         </section>
 
         <section>
-            <h2>現在の関心</h2>
+            <h2>現在の関心<span lang="en">Interests</span></h2>
             <ul class="plain">
                 {% for item in profile.interests %}<li>{{ item }}</li>{% endfor %}
             </ul>
@@ -25,7 +30,7 @@
 
         {% if rm.achievements %}
         <section>
-            <h2>最近の業績</h2>
+            <h2>最近の業績<span lang="en">Recent Work</span></h2>
             <ul class="dated">
                 {% for a in rm.achievements[:5] %}{{ achievement(a) }}{% endfor %}
             </ul>
@@ -35,7 +40,7 @@
 
         {% if recent_posts %}
         <section>
-            <h2>ブログ</h2>
+            <h2>ブログ<span lang="en">Notes</span></h2>
             <ul class="dated">
                 {% for post in recent_posts %}{{ post_item(post) }}{% endfor %}
             </ul>
@@ -44,7 +49,7 @@
         {% endif %}
 
         <section>
-            <h2>連絡先</h2>
+            <h2>連絡先<span lang="en">Contact</span></h2>
             <dl class="pairs">
                 {% for c in profile.contacts %}
                 <dt>{{ c.label }}</dt>
@@ -54,7 +59,7 @@
         </section>
 
         <section>
-            <h2>リンク</h2>
+            <h2>リンク<span lang="en">Links</span></h2>
             <dl class="pairs">
                 {% for g in profile.links %}
                 <dt>{{ g.group }}</dt>

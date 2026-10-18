@@ -22,3 +22,6 @@
     </div>
 </li>
 {% endmacro %}
+
+{# 「2021年4月 〜 2025年3月」を2行に分けて表示する #}
+{% macro period(p) %}{% set parts = (p or "").split(" 〜 ") %}{{ parts[0] }}{% if parts|length > 1 %}<br>〜 {{ parts[1] }}{% endif %}{% endmacro %}

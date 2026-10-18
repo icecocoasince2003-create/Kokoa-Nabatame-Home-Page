@@ -3,12 +3,15 @@
 
 {% block title %}ブログ | {% endblock %}
 
+{% block band %}
+        <div class="page-head wrap">
+            <h1>ブログ</h1>
+            <p class="en" lang="en">Notes</p>
+            <p class="desc">学会参加や発表など、日々の記録です。</p>
+        </div>
+{% endblock %}
+
 {% block content %}
-        <header class="page-head">
-            <h1 class="page-title">ブログ</h1>
-            <p class="page-title-en" lang="en">Notes</p>
-            <p class="note">学会参加や発表など、日々の記録です。</p>
-        </header>
 
         {% for year, posts in grouped_posts.items() %}
         <section>

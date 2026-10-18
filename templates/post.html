@@ -2,10 +2,16 @@
 
 {% block title %}{{ post.title }} | {% endblock %}
 
+{% block band %}
+        <div class="page-head wrap">
+            <p class="en">{{ post.date|replace("-", ".") }}</p>
+            <h1 class="post-title">{{ post.title }}</h1>
+            {% if post.place %}<p class="desc">{{ post.place }}</p>{% endif %}
+        </div>
+{% endblock %}
+
 {% block content %}
         <article class="post">
-            <p class="post-meta">{{ post.date|replace("-", ".") }}{% if post.place %}　{{ post.place }}{% endif %}</p>
-            <h1 class="post-title">{{ post.title }}</h1>
 
             <div class="post-body">
                 {{ post.html|safe }}

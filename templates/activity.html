@@ -1,16 +1,19 @@
 {% extends "base.html" %}
-{% from "_macros.html" import achievement %}
+{% from "_macros.html" import achievement, period %}
 
 {% block title %}研究・業績 | {% endblock %}
 
+{% block band %}
+        <div class="page-head wrap">
+            <h1>研究・業績</h1>
+            <p class="en" lang="en">Research &amp; Publications</p>
+        </div>
+{% endblock %}
+
 {% block content %}
-        <header class="page-head">
-            <h1 class="page-title">研究・業績</h1>
-            <p class="page-title-en" lang="en">Research &amp; Publications</p>
-        </header>
 
         <section>
-            <h2>研究テーマ</h2>
+            <h2>研究テーマ<span lang="en">Research</span></h2>
             {% for t in profile.themes %}
             <div class="theme">
                 <h3>{{ t.title }}</h3>
@@ -21,7 +24,7 @@
         </section>
 
         <section id="achievements">
-            <h2>業績</h2>
+            <h2>業績<span lang="en">Publications &amp; Presentations</span></h2>
             {% for label, items in achievement_groups %}
             <h3>{{ label }}</h3>
             <ul class="dated">
@@ -32,11 +35,11 @@
 
         {% if rm.projects %}
         <section>
-            <h2>研究費・助成</h2>
-            <ul class="dated">
+            <h2>研究費・助成<span lang="en">Grants</span></h2>
+            <ul class="dated long">
                 {% for p in rm.projects %}
                 <li>
-                    <span class="when">{{ p.period }}</span>
+                    <span class="when">{{ period(p.period) }}</span>
                     <div class="what">
                         <p class="title">{{ p.title }}</p>
                         <p class="sub">{{ p.funder }} {{ p.program }}{% if p.role %}（{{ p.role }}）{% endif %}</p>
@@ -49,7 +52,7 @@
 
         {% if rm.outreach %}
         <section>
-            <h2>社会貢献・アウトリーチ</h2>
+            <h2>社会貢献・アウトリーチ<span lang="en">Outreach</span></h2>
             <ul class="dated">
                 {% for o in rm.outreach %}
                 <li>
@@ -65,7 +68,7 @@
         {% endif %}
 
         <section>
-            <h2>所属学会</h2>
+            <h2>所属学会<span lang="en">Memberships</span></h2>
             <ul class="dated">
                 {% for s in rm.memberships %}
                 {% set url = (profile.society_urls or {}).get(s.name) %}
