@@ -1,0 +1,165 @@
+# このファイルは update_researchmap.py が自動で作ります。手で編集しないでください。
+# 内容を変えたいときは researchmap 側を直して、もう一度エクスポート → スクリプト実行。
+updated: '2026-10-18'
+keywords:
+- コプト語
+- エジプト学
+- デジタルヒューマニティーズ
+- グノーシス主義
+- ナグ・ハマディ文書
+- ユダ福音書
+fields:
+- field: アジア史、アフリカ史
+  keyword: エジプト学
+- field: 言語学
+  keyword: コプト語
+- field: 言語学
+  keyword: 古代エジプト語
+- field: 宗教学
+  keyword: グノーシス主義
+achievements:
+- date: '2026-08-25'
+  type: 発表
+  title: 『ユダの福音書』における「十三番目のダイモーン」の意味――コプト語コーパスを用いた用例分析を中心に
+  authors:
+  - name: 生田目心愛
+    me: true
+  venue: 東方キリスト教学会
+  note: 口頭発表
+  url: ''
+- date: '2026-08-10'
+  type: 発表
+  title: 'Making of TEI Digital Scholarly Editions of Coptic Apocrypha: Case Studies on the Apocalypse of Elijah and the Gospel of Judas'
+  authors:
+  - name: So Miyagawa
+    me: false
+  - name: Kokoa Nabatame
+    me: true
+  venue: TEI 2026
+  note: ポスター発表
+  url: ''
+- date: '2026-07-27'
+  type: 発表
+  title: 'A Study on Differential Object Marking (DOM) in the Gospel of Judas: A Sahidic Coptic Dialectal Analysis'
+  authors:
+  - name: Kokoa NABATAME
+    me: true
+  venue: 13th International Congress of Coptic Studies
+  note: 口頭発表
+  url: ''
+- date: '2026-07-11'
+  type: 発表
+  title: A Linguistic Analysis of the Coptic Translation of Plato's Republic 588b–589b in Nag Hammadi Codex VI,5
+  authors:
+  - name: Kokoa NABATAME
+    me: true
+  venue: Current Research in Egyptology 26
+  note: 口頭発表
+  url: ''
+- date: '2026-05-23'
+  type: 発表
+  title: コプト語グノーシス主義文書のTEI XMLコーパス化-ユダの福音書を中心に-
+  authors:
+  - name: 生田目心愛
+    me: true
+  - name: 宮川創
+    me: false
+  venue: 情報知識学会第34回(2026年度)年次大会
+  note: 口頭発表
+  url: ''
+- date: 2026-05
+  type: 受賞
+  title: 学生奨励賞（コプト語グノーシス主義文書のTEI XMLコーパス化―ユダの福音書を中心に―）
+  authors:
+  - name: 生田目心愛
+    me: true
+  - name: 宮川創
+    me: false
+  venue: 情報知識学会第34回年次大会
+  note: ''
+  url: ''
+- date: 2026-05
+  type: 論文
+  title: コプト語グノーシス主義文書の TEI XML コーパス化—ユダの福音書を中心に—
+  authors:
+  - name: 生田目心愛
+    me: true
+  - name: 宮川創
+    me: false
+  venue: 情報知識学会 36(2) pp. 150–156
+  note: 学術雑誌
+  url: ''
+- date: '2025-10-11'
+  type: 発表
+  title: コプト語サイード方言文献『ユダ福音書』におけるDifferential Object Markingに関する一考察
+  authors:
+  - name: 生田目心愛
+    me: true
+  venue: 日本オリエント学会第67回大会
+  note: 口頭発表
+  url: ''
+- date: 2025-03
+  type: 受賞
+  title: 総長賞（学科主席卒業）
+  authors: []
+  venue: 東海大学
+  note: ''
+  url: ''
+- date: 2024-05
+  type: 著作
+  title: 「文化財を科学するIII」ワークショップ講演及びディスカッション録 AIとオープンデータが人文学を変えるデジタル・ヒューマニティーズ-画像公開方式IIIFやAIくずし字認識の発展から見えてくる人文学の新たな研究方法
+  authors:
+  - name: 北本朝展
+    me: false
+  - name: 山花京子
+    me: false
+  - name: 松前ひろみ
+    me: false
+  - name: 鴨下真由
+    me: false
+  - name: 小能治子
+    me: false
+  - name: 生田目心愛
+    me: true
+  venue: 文明 32 pp. 59–80
+  note: ''
+  url: ''
+projects:
+- title: THOTH AIを活用したナグ・ハマディ写本コーパスの構築と、コプト語示差的目的語標示（DOM）の定量分析によるギリシア語原本の再構想
+  funder: 日本財団
+  program: 日本財団HUMAIプログラム第二期奨励金A
+  period: 2026年6月 〜 2027年3月
+  start: 2026-06
+  role: 研究代表者
+experience:
+- job: ティーチングアシスタント(TA)
+  org: 筑波大学 人文・文化学群人文学類
+  period: 2025年5月 〜 現在
+  start: 2025-05
+  note: 古代エジプト語初級-a,一般言語学特殊演習I-a, 古代エジプト語初級-b, 一般言語学特殊演習I-b, 古代エジプト語中級-a, 古代エジプト語中級-b
+memberships:
+- name: 日本オリエント学会
+  since: '2025'
+- name: 東方キリスト教学会
+  since: '2026'
+- name: 情報処理学会
+  since: '2026'
+- name: International Association for Coptic Studies
+  since: '2026'
+- name: 日本言語学会
+  since: '2026'
+- name: 情報知識学会
+  since: '2026'
+- name: International Council of Museums
+  since: '2026'
+outreach:
+- title: 「ラムセス大王展：ファラオたちの黄金」展示会学習ブックレット「もっとラムセス大王を知ろう！」の作成
+  event: ''
+  organizer: ''
+  date: '2025'
+  url: https://researchmap.jp/kokoa.nabatame/social_contribution/53436090/attachment_file.pdf
+- title: 東海大学Egyptian Projectプレゼンツこども向けワークショップ もっと古代エジプトを知ろう！
+  event: 体感型古代エジプト展 ツタンカーメンの青春展
+  organizer: 角川武蔵野ミュージアム・東海大学Egyptian Project
+  date: '2023-09-09'
+  url: ''

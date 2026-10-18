@@ -1,0 +1,113 @@
+# ===============================================================
+#  ホームページの「手で書く」情報はすべてこのファイルにまとめています。
+#  文章を直したいときは、ここの文字を書き換えて保存するだけでOKです。
+#
+#  ※ 業績・発表・受賞・所属学会・研究費・社会貢献は researchmap から
+#    自動で取り込みます（data/researchmap.yaml。README.md 参照）。
+#  ※ ブログ記事は posts/ フォルダに Markdown を追加します。
+#
+#  書き方のコツ：
+#    - 行頭のスペース（字下げ）はそろえてください
+#    - 「- 」で始まる行はリストの1項目です
+#    - 「|」の次の行から書いた文章は、改行もそのまま表示されます
+# ===============================================================
+
+name: 生田目 心愛
+name_en: Kokoa Nabatame
+photo: /images/shasin_sphinx.jpg
+
+# トップページ：名前の下の所属
+affiliation: 筑波大学大学院 人文社会科学研究群 言語学サブプログラム 博士前期課程2年
+
+# トップページ：自己紹介（空行で段落が分かれます）
+about: |
+  筑波大学大学院で言語学（エジプト語・コプト語）を専攻しています。研究対象はコプト語サイード方言、ナグ・ハマディ写本、『ユダ福音書』、そしてデジタル・ヒューマニティーズです。
+
+  古代エジプト語・コプト語の文献研究やグノーシス主義などの宗教思想に加え、テキスト資源のデジタル化やコーパス化にも関心があります。
+
+# トップページ「現在の関心」
+interests:
+  - コプト語サイード方言の統語・意味論研究
+  - ナグ・ハマディ写本のデジタル資源化
+  - 『ユダ福音書』を中心としたグノーシス主義研究
+  - 機械学習を活用した古典語コーパス開発
+
+# 研究と活動ページ「研究テーマ」
+themes:
+  - title: コプト語サイード方言の示差的目的語標示（DOM）
+    text: ナグ・ハマディ写本や『ユダ福音書』を対象に、目的語標示の傾向と統語・意味論的条件を分析しています。
+  - title: ナグ・ハマディ写本 全文公開コーパスの開発
+    text: 機械学習やマークアップを活用し、古典語資料を再利用しやすい研究基盤へ整備することを目指しています。
+  - title: グノーシス主義文書研究
+    text: 『ユダ福音書』や関連文書を通して、思想史・文献学・言語学を横断的に扱っています。
+
+# 経歴ページ「学歴」（新しい順）
+education:
+  - period: 2025年4月 〜 現在
+    school: 筑波大学大学院 人文社会ビジネス科学学術院 人文社会科学研究群
+    detail: 人文学学位プログラム 言語学サブプログラム 博士前期課程
+    status: 在学中
+  - period: 2021年4月 〜 2025年3月
+    school: 東海大学 文化社会学部 アジア学科
+    detail: 学士（文化社会学）・学科主席卒業
+    status: 卒業
+  - period: 2018年4月 〜 2021年3月
+    school: 栃木県立矢板東高等学校
+    status: 卒業
+
+# 経歴ページ「資格」
+qualifications:
+  - name: 中学校教諭一種免許状（社会）
+    date: 2025年3月
+    issuer: 神奈川県教育委員会
+  - name: 高等学校教諭一種免許状（地理歴史）
+    date: 2025年3月
+    issuer: 神奈川県教育委員会
+  - name: 学芸員資格
+    date: 2025年3月
+    issuer: 文部科学省
+  - name: 社会教育主事任用資格
+    date: 2025年3月
+    issuer: 文部科学省
+  - name: 社会教育士
+    date: 2025年3月
+    issuer: 文部科学省
+
+# トップページ「連絡先」
+contacts:
+  - label: 学内
+    text: s2520048@u.tsukuba.ac.jp
+    url: mailto:s2520048@u.tsukuba.ac.jp
+  - label: 個人
+    text: icecocoa.since2003@icloud.com
+    url: mailto:icecocoa.since2003@icloud.com
+  - label: researchmap
+    text: 生田目心愛
+    url: https://researchmap.jp/kokoa.nabatame
+  - label: GitHub
+    text: icecocoasince2003-create
+    url: https://github.com/icecocoasince2003-create
+
+# トップページ「関連リンク」（グループごと）
+links:
+  - group: 自作ツール
+    items:
+      - text: MVSEDAYS ミューズ・デイズ：博物館nikki
+        url: https://mvsedays.onrender.com/
+  - group: 所属先
+    items:
+      - text: 宮川創研究室HP
+        url: https://somiyagawa.com/
+      - text: 筑波大学一般言語学研究室HP
+        url: https://www.lingua.tsukuba.ac.jp/ippan/index.html
+
+# 所属学会の公式サイト（学会名は researchmap の表記と同じにしてください）
+# 学会一覧そのものは researchmap から自動で取り込みます。
+society_urls:
+  日本オリエント学会: https://www.j-orient.com/
+  International Council of Museums: https://icom.museum/en/
+  情報知識学会: https://www.jsik.jp/
+  日本言語学会: https://ls-japan.org/
+  International Association for Coptic Studies: https://iacs-coptic.org/
+  情報処理学会: https://www.ipsj.or.jp/
+  # 東方キリスト教学会: （公式サイトのURLが分かれば追記）

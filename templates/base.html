@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}生田目 心愛{% endblock %}</title>
+    <title>{% block title %}{% endblock %}{{ profile.name }}</title>
+    <meta name="description" content="{{ profile.name }}（{{ profile.name_en }}）のホームページ。{{ profile.affiliation }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&display=swap">
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
     <header class="site-header">
-        <div class="header-inner">
-            <a href="{{ url_for('home') }}" class="site-title">Kokoa Nabatame</a>
-            <nav class="global-nav">
-                <a href="{{ url_for('home') }}" class="{% if page == 'index' %}active{% endif %}">index</a>
-                <a href="{{ url_for('resume') }}" class="{% if page == 'resume' %}active{% endif %}">resume</a>
-                <a href="{{ url_for('activity') }}" class="{% if page == 'activity' %}active{% endif %}">activity</a>
-                <a href="{{ url_for('blog') }}" class="{% if page == 'blog' %}active{% endif %}">blog</a>
-            </nav>
-        </div>
+        <a href="{{ url_for('home') }}" class="site-title">{{ profile.name }}</a>
+        <nav class="global-nav" aria-label="サイト内">
+            {% for key, label in [('home', 'ホーム'), ('resume', '経歴'), ('activity', '研究・業績'), ('blog', 'ブログ')] %}
+            <a href="{{ url_for(key) }}"{% if page == key %} aria-current="page"{% endif %}>{{ label }}</a>
+            {% endfor %}
+        </nav>
     </header>
 
     <main class="page-wrap">
@@ -24,7 +25,8 @@
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Kokoa Nabatame</p>
+        <p>&copy; {{ this_year }} {{ profile.name_en }}</p>
+        {% if rm.updated %}<p>業績は <a href="https://researchmap.jp/kokoa.nabatame">researchmap</a> のデータ（{{ rm.updated|ymd }}時点）から表示しています。</p>{% endif %}
     </footer>
 </body>
 </html>

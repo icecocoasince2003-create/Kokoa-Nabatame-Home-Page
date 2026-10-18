@@ -1,105 +1,76 @@
 {% extends "base.html" %}
+{% from "_macros.html" import achievement %}
 
-{% block title %}生田目 心愛 | Activity{% endblock %}
+{% block title %}研究・業績 | {% endblock %}
 
 {% block content %}
-        <section class="page-intro panel">
-            <p class="eyebrow">Activity</p>
-            <h1>研究と活動</h1>
+        <h1 class="page-title">研究・業績</h1>
+
+        <section>
+            <h2>研究テーマ</h2>
+            {% for t in profile.themes %}
+            <div class="theme">
+                <h3>{{ t.title }}</h3>
+                <p>{{ t.text }}</p>
+            </div>
+            {% endfor %}
+            {% if rm.keywords %}<p class="note">キーワード：{{ rm.keywords | join("、") }}</p>{% endif %}
         </section>
 
-        <section class="panel">
-            <div class="section-head">
-                <p class="eyebrow">Research Themes</p>
-                <h2>研究テーマ・分野</h2>
-            </div>
-            <div class="tiles research-tiles">
-                <article class="tile static-tile">
-                    <span class="tile-label">Theme 01</span>
-                    <strong>コプト語サイード方言の<br>示差的目的語標示（DOM）</strong>
-                    <p>ナグ・ハマディ写本や『ユダ福音書』を対象に、目的語標示の傾向と統語・意味論的条件を分析しています。</p>
-                </article>
-                <article class="tile static-tile">
-                    <span class="tile-label">Theme 02</span>
-                    <strong>ナグ・ハマディ写本
-                        <br>全文公開コーパスの開発</strong>
-                    <p>機械学習やマークアップを活用し、古典語資料を再利用しやすい研究基盤へ整備することを目指しています。</p>
-                </article>
-                <article class="tile static-tile">
-                    <span class="tile-label">Theme 03</span>
-                    <strong>グノーシス主義文書研究</strong>
-                    <p>『ユダ福音書』や関連文書を通して、思想史・文献学・言語学を横断的に扱っています。</p>
-                </article>
-            </div>
+        <section id="achievements">
+            <h2>業績</h2>
+            {% for label, items in achievement_groups %}
+            <h3>{{ label }}</h3>
+            <ul class="dated">
+                {% for a in items %}{{ achievement(a) }}{% endfor %}
+            </ul>
+            {% endfor %}
         </section>
 
-        <section class="panel">
-            <div class="section-head">
-                <p class="eyebrow">Achievements</p>
-                <h2>業績</h2>
-            </div>
-            <div class="table-wrap">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>年</th>
-                            <th>種別</th>
-                            <th>タイトル・内容</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in achievements %}
-                        <tr>
-                            <td>{{ item.year }}</td>
-                            <td><span class="badge badge-{{ item.type }}">{{ item.type }}</span></td>
-                            <td>
-                                <strong>{{ item.title }}</strong><br>
-
-                                {% if item.authors %}
-                                <div class="achievement-authors">
-                                    {{ item.authors | join(" / ") }}
-                                </div>
-                                {% endif %}
-
-                                {% if item.presenter %}
-                                <div class="achievement-presenter">
-                                    発表者：{{ item.presenter }}
-                                </div>
-                                {% endif %}
-
-                                <span class="table-subtext">{{ item.description }}</span>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="panel">
-            <div class="section-head">
-                <p class="eyebrow">Academic Membership</p>
-                <h2>所属学会</h2>
-            </div>
-            <div class="tiles membership-tiles">
-                {% for s in societies %}
-                <a class="tile" href="{{ s.url }}" target="_blank" rel="noopener noreferrer">
-                    <span class="tile-label">{{ s.since }}</span>
-                    <strong>{{ s.name }}</strong>
-                    <p>公式サイトを見る</p>
-                </a>
+        {% if rm.projects %}
+        <section>
+            <h2>研究費・助成</h2>
+            <ul class="dated">
+                {% for p in rm.projects %}
+                <li>
+                    <span class="when">{{ p.period }}</span>
+                    <div class="what">
+                        <p class="title">{{ p.title }}</p>
+                        <p class="sub">{{ p.funder }} {{ p.program }}{% if p.role %}（{{ p.role }}）{% endif %}</p>
+                    </div>
+                </li>
                 {% endfor %}
-            </div>
+            </ul>
         </section>
+        {% endif %}
 
-        <section class="panel">
-            <div class="section-head">
-                <p class="eyebrow">Records</p>
-                <h2>活動の記録</h2>
-            </div>
-            <p>学会参加・発表・受賞などの記録は、ブログにまとめています。</p>
-            <div class="more-button-wrap" style="text-align: left;">
-                <a href="{{ url_for('blog') }}" class="more-button">記録・ブログを見る →</a>
-            </div>
+        {% if rm.outreach %}
+        <section>
+            <h2>社会貢献・アウトリーチ</h2>
+            <ul class="dated">
+                {% for o in rm.outreach %}
+                <li>
+                    <span class="when">{{ o.date|ym }}</span>
+                    <div class="what">
+                        <p class="title">{% if o.url %}<a href="{{ o.url }}">{{ o.title }}</a>{% else %}{{ o.title }}{% endif %}</p>
+                        {% if o.event or o.organizer %}<p class="sub">{{ o.event }}{% if o.event and o.organizer %}（{{ o.organizer }}）{% else %}{{ o.organizer }}{% endif %}</p>{% endif %}
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+
+        <section>
+            <h2>所属学会</h2>
+            <ul class="dated">
+                {% for s in rm.memberships %}
+                {% set url = (profile.society_urls or {}).get(s.name) %}
+                <li>
+                    <span class="when">{{ s.since }}年〜</span>
+                    <div class="what"><p>{% if url %}<a href="{{ url }}">{{ s.name }}</a>{% else %}{{ s.name }}{% endif %}</p></div>
+                </li>
+                {% endfor %}
+            </ul>
         </section>
 {% endblock %}

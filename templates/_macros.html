@@ -1,0 +1,24 @@
+{# 繰り返し使う部品 #}
+
+{% macro post_item(post) %}
+<li>
+    <span class="when">{{ post.date|replace('-', '.') }}</span>
+    <div class="what">
+        <p class="title"><a href="{{ url_for('blog_post', slug=post.slug) }}">{{ post.title }}</a></p>
+        <p class="sub">{{ post.summary }}</p>
+    </div>
+</li>
+{% endmacro %}
+
+{% macro achievement(a) %}
+<li>
+    <span class="when">{{ a.date|ym }}</span>
+    <div class="what">
+        <p class="title">{% if a.url %}<a href="{{ a.url }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</p>
+        {% if a.authors %}
+        <p class="sub">{% for p in a.authors %}{% if p.me %}<b>{{ p.name }}</b>{% else %}{{ p.name }}{% endif %}{% if not loop.last %}, {% endif %}{% endfor %}</p>
+        {% endif %}
+        <p class="sub">{{ a.venue }}{% if a.note %}（{{ a.note }}）{% endif %}</p>
+    </div>
+</li>
+{% endmacro %}
