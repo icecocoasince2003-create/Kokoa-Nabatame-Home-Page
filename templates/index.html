@@ -3,17 +3,18 @@
 
 {% block content %}
         <div class="intro">
+            <h1>{% for part in profile.name.split() %}<span>{{ part }}</span>{% endfor %}</h1>
+            <img src="{{ profile.photo }}" alt="ギザのスフィンクスの前で">
             <div>
-                <h1>{{ profile.name }}</h1>
-                <p class="romaji">{{ profile.name_en }}</p>
+                <p class="romaji" lang="en">{{ profile.name_en }}</p>
                 <p class="affiliation">{{ profile.affiliation }}</p>
             </div>
-            <img src="{{ profile.photo }}" alt="ギザのスフィンクスの前で">
         </div>
 
-        <div class="lead">
+        <section class="lead">
+            <h2>自己紹介</h2>
             {% for para in profile.about.strip().split("\n\n") %}<p>{{ para | replace("\n", "") }}</p>{% endfor %}
-        </div>
+        </section>
 
         <section>
             <h2>現在の関心</h2>

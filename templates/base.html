@@ -1,32 +1,29 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}{{ profile.name }}</title>
-    <meta name="description" content="{{ profile.name }}（{{ profile.name_en }}）のホームページ。{{ profile.affiliation }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&display=swap">
-    <link rel="stylesheet" href="/style.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Description" content="{{ profile.name }}（{{ profile.name_en }}）のホームページ。{{ profile.affiliation }}">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Mincho ProN'; color: #0000e9; -webkit-text-stroke: #0000e9}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Hiragino Mincho ProN'; -webkit-text-stroke: #000000}
+    p.p3 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px 'Hiragino Mincho ProN'; -webkit-text-stroke: #000000}
+    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px 'Hiragino Mincho ProN'; -webkit-text-stroke: #000000; min-height: 18.0px}
+    span.s1 {text-decoration: underline ; font-kerning: none}
+    span.s2 {font-kerning: none}
+    span.s3 {text-decoration: underline ; font-kerning: none; color: #0000e9; -webkit-text-stroke: 0px #0000e9}
+  </style>
 </head>
 <body>
-    <header class="site-header">
-        <a href="{{ url_for('home') }}" class="site-title">{{ profile.name }}</a>
-        <nav class="global-nav" aria-label="サイト内">
-            {% for key, label in [('home', 'ホーム'), ('resume', '経歴'), ('activity', '研究・業績'), ('blog', 'ブログ')] %}
-            <a href="{{ url_for(key) }}"{% if page == key %} aria-current="page"{% endif %}>{{ label }}</a>
-            {% endfor %}
-        </nav>
-    </header>
-
-    <main class="page-wrap">
-        {% block content %}{% endblock %}
-    </main>
-
-    <footer class="site-footer">
-        <p>&copy; {{ this_year }} {{ profile.name_en }}</p>
-        {% if rm.updated %}<p>業績は <a href="https://researchmap.jp/kokoa.nabatame">researchmap</a> のデータ（{{ rm.updated|ymd }}時点）から表示しています。</p>{% endif %}
-    </footer>
+<p class="p1"><span class="s1"><a href="file:///Users/kokoanabatame/Desktop/Kokoa-Nabatame-Home-Page/templates/%7B%7B%20url_for('home')%20%7D%7D">{{ profile.name_en }}</a></span></p>
+<p class="p2"><span class="s2">{% for key, label in [('home', 'ホーム'), ('resume', '経歴'), ('activity', '研究・業績'), ('blog', 'ブログ')] %} <a href="file:///Users/kokoanabatame/Desktop/Kokoa-Nabatame-Home-Page/templates/%7B%7B%20url_for(key)%20%7D%7D"><span class="s3">{{ label }}</span></a> {% endfor %}</span></p>
+<p class="p2"><span class="s2">{% block content %}{% endblock %}</span></p>
+<p class="p3"><span class="s2">© {{ this_year }} {{ profile.name_en }}</span></p>
+<p class="p2"><span class="s2">{% if rm.updated %}</span></p>
+<p class="p4"><span class="s2"></span><br></p>
+<p class="p2"><span class="s2">{% endif %}</span></p>
 </body>
 </html>
