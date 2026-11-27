@@ -75,13 +75,13 @@ qualifications:
     issuer: 文部科学省
 
 # トップページ「連絡先」
+#   メールアドレスは迷惑メール対策のため「@」を「[@]」と書き、url は付けません
+#   （url を書かない項目はリンクなしの文字だけで表示されます）
 contacts:
   - label: 学内
-    text: s2520048@u.tsukuba.ac.jp
-    url: mailto:s2520048@u.tsukuba.ac.jp
+    text: s2520048[@]u.tsukuba.ac.jp
   - label: 個人
-    text: icecocoa.since2003@icloud.com
-    url: mailto:icecocoa.since2003@icloud.com
+    text: icecocoa.since2003[@]gmail.com
   - label: researchmap
     text: 生田目心愛
     url: https://researchmap.jp/kokoa.nabatame
@@ -94,7 +94,7 @@ links:
   - group: 自作ツール
     items:
       - text: MVSEDAYS ミューズ・デイズ：博物館nikki
-        url: https://mvsedays.onrender.com/
+        url: https://d36clfb43rh5ht.cloudfront.net/
   - group: 所属先
     items:
       - text: 宮川創研究室HP

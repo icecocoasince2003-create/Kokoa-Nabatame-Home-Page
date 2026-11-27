@@ -10,8 +10,7 @@
 | 業績（論文・発表・受賞）・所属学会・研究費・社会貢献・TA など | researchmap を更新 → 下の「researchmap の反映」 |
 | ブログ記事 | `posts/` に Markdown を1つ追加（`posts/README.md` 参照） |
 | プロフィール写真 | `public/images/` に画像を置き、`profile.yaml` の `photo` を変更 |
-| 見た目（色・余白など） | `public/style.css` の冒頭 |
-| 夜空の動き（星の数・回る速さ・流れ星） | `public/sky.js` の冒頭「調整できる値」 |
+| 見た目（色・文字・余白など） | `public/style.css` の冒頭 |
 
 `app.py` と `templates/` は、ふだん触る必要はありません。
 
